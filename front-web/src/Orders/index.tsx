@@ -2,18 +2,20 @@ import './styles.css';
 import ProductsList from './ProductsList';
 import StepsHeader from './StepsHeader';
 import { useEffect, useState } from 'react';
-import { OrderLocationdata, Product } from './types';
-import { fecthProducts } from '../api';
+import { fetchProducts } from '../api';
 import OrderLocation from './OrderLocation';
-import { SelectorMatcherOptions } from '@testing-library/react';
+import { OrderLocationdata } from './types';
+import { Product } from './types';
+
 
 
 function Orders() {
 
     const [products, setProducts] = useState<Product[]>([]);
-    const [orderlocation, setOrderlocation] = useState<OrderLocationdata>();
+    const [orderLocation, setOrderLocation] = useState< OrderLocationdata >(); 
+
     useEffect(() => {
-            fecthProducts()
+            fetchProducts()
                 .then(response => setProducts(response.data))
                 .catch(error => console.log(error))
     }, []);
@@ -22,7 +24,7 @@ function Orders() {
         <div className="orders-container">
             <StepsHeader />
             <ProductsList products={products}/>
-            <OrderLocation onChangeLocation={location => setOrderlocation(location)}/>
+            <OrderLocation onChangeLocation={location => setOrderLocation(location)}/>
         </div>
 )
 
