@@ -17,7 +17,7 @@ function StepsHeader() {
                         
                     <li>
                         <span className="steps-number"> 2 </span>
-                        Depois clique em <strong>"Enviar Pedido"</strong>
+                        Depois clique em <strong>"Fazer Pedido"</strong>
                     </li>
                 </ul>
             </div>
